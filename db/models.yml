@@ -1,0 +1,26 @@
+Teacher:
+  name: string
+  school: string
+  subject: string
+  grade: string
+  password: string
+
+Assignment: 
+  name: string
+  teacher_id: integer
+  num_assignments: integer
+  due_date: string
+  estimate_time: integer
+
+Assistant:
+  name: string
+  email: string
+  subject_pref: string
+  grade_pref: string
+  password: string
+
+Review:
+  assistant_id: integer
+  date: string
+  stars: integer
+  review: text
