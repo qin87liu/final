@@ -2,5 +2,11 @@
 
 <% teachers = Teacher.all %>
 <% teachers.each do |teacher| %>
-	<p><a href="/teachers/<%=teacher.id%>"><%=teacher.name%></a></p>
+	<p>
+    <%= link_to teacher.name, teacher_url(teacher) %>
+    <%= link_to "Edit", edit_teacher_url(teacher) %>
+    <%= button_to "Delete", teacher_url(teacher), method: :delete %>
+  </p>
 <% end %>
+
+<%= link_to "New Teacher", new_teacher_path, class: 'btn btn-sm btn-success' %>
