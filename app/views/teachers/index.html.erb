@@ -5,7 +5,7 @@
 	<p>
     <%= link_to teacher.name, teacher_url(teacher) %>
     <%= link_to "Edit", edit_teacher_url(teacher) %>
-    <%= button_to "Delete", teacher_url(teacher), method: :delete %>
+    <%= link_to "Delete", teacher_url(teacher), method: :delete %>
   </p>
 <% end %>
 

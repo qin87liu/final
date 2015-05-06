@@ -1,17 +1,24 @@
 
 <%= form_for @teacher do |form| %>
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </p>
+    <p>
+      <%= form.label :school %>
+      <%= form.text_field :school, class: "form-control" %>
+    </p>
 
-    <%= form.label :school %>
-    <%= form.text_field :school, class: "form-control" %>
+    <p>
+      <%= form.label :subject %>
+      <%= form.text_field :subject, class: "form-control" %>
+    </p>
 
-    <%= form.label :subject %>
-    <%= form.text_field :subject, class: "form-control" %>
-
-    <%= form.label :grade %>
-    <%= form.text_field :grade, class: "form-control" %>
+    <p>
+      <%= form.label :grade %>
+      <%= form.text_field :grade, class: "form-control" %>
+    </p>
 
   </div>
   <%= form.button 'Update Teacher', class: "btn btn-success" %>

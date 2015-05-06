@@ -1,7 +1,7 @@
 <% teacher = Teacher.find_by(id: params["id"]) %>
 
-<h3><%=teacher.name%></h3>
+<h3>Teacher Name: <%=teacher.name%></h3>
 
-<p><%=teacher.school%></p>
-<p><%=teacher.subject%></p>
-<p><%=teacher.grade%></p>
+<p>School: <%=teacher.school%></p>
+<p>Subject(s): <%=teacher.subject%></p>
+<p>Grade(s): <%=teacher.grade%></p>
