@@ -1,6 +1,9 @@
+School:
+  name: string
+
 Teacher:
   name: string
-  school: string
+  school_id: integer
   subject: string
   grade: string
   password: string
@@ -11,6 +14,7 @@ Assignment:
   num_assignments: integer
   due_date: string
   estimate_time: integer
+  assistant_id: integer
 
 Assistant:
   name: string

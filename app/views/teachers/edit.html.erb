@@ -7,7 +7,7 @@
     </p>
     <p>
       <%= form.label :school %>
-      <%= form.text_field :school, class: "form-control" %>
+      <%= form.collection_select(:school_id, School.all, :id, :name, {}, { class: "form-control" }) %>
     </p>
 
     <p>

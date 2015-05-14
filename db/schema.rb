@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "num_assignments"
     t.string  "due_date"
     t.integer "estimate_time"
+    t.integer "assistant_id"
   end
 
+  add_index "assignments", ["assistant_id"], name: "index_assignments_on_assistant_id"
   add_index "assignments", ["teacher_id"], name: "index_assignments_on_teacher_id"
 
   create_table "assistants", force: true do |t|
@@ -40,12 +42,18 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "reviews", ["assistant_id"], name: "index_reviews_on_assistant_id"
 
-  create_table "teachers", force: true do |t|
+  create_table "schools", force: true do |t|
     t.string "name"
-    t.string "school"
-    t.string "subject"
-    t.string "grade"
-    t.string "password"
   end
+
+  create_table "teachers", force: true do |t|
+    t.string  "name"
+    t.string  "subject"
+    t.string  "grade"
+    t.string  "password"
+    t.integer "school_id"
+  end
+
+  add_index "teachers", ["school_id"], name: "index_teachers_on_school_id"
 
 end

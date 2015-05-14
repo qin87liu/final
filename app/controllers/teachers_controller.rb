@@ -4,6 +4,7 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @teacher = Teacher.find_by(id: params["id"])
   end
 
   def new
