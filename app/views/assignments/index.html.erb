@@ -1,0 +1,33 @@
+<h3>Here are a list of the assignments!</h3>
+
+<% assignments = Assignment.all %>
+<% assignments.each do |assignment| %>
+  <div class="row">
+    <div class = "col-md-3">
+      <%= link_to assignment.name, assignment_url(assignment) %>
+    </div>
+    <div class = "col-md-3">
+      <% teacher = @teachers.find_by(id: assignment.teacher_id) %>
+      <%= teacher.name %>
+    </div>
+    <div class = "col-md-2">
+      <%= assignment.num_assignments %>
+    </div>
+    <div class = "col-md-2">
+      <%= assignment.due_date %>
+    </div>
+    <div class = "col-md-2">
+      <%= assignment.estimate_time %>
+    </div>
+  </div>
+  <div class = "row">
+    <p>
+      <%= link_to "Claim Assignment!", edit_assignment_url(assignment), class: 'btn btn-sm btn-primary' %>
+      <%= link_to "Assignment Graded!", assignment_url(assignment), method: :delete, class: 'btn btn-sm btn-warning' %>
+    </p>
+  </div>
+<% end %>
+
+<div class="row">
+  <p><%= link_to "New Assignment", new_assignment_path, class: 'btn btn-sm btn-success' %></p>
+</div>

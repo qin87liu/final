@@ -1,0 +1,16 @@
+
+<h3>Assignment Name: <%=@assignment.name%></h3>
+
+<% teacher = @teachers.find_by(id: @assignment.teacher_id) %>
+
+<p>Teacher: <%=teacher.name%></p>
+
+<p>Number of Assignments: <%=@assignment.num_assignments%></p>
+
+<p>Due Date: <%=@assignment.due_date%></p>
+
+<p>Estimated time to complete: <%=@assignment.estimate_time%></p>
+
+<% assistant = Assistant.find_by(id: @assignment.assistant_id)%>
+
+<p>Assigned TA: <%=assistant.name%></p>
