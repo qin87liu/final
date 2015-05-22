@@ -1,3 +1,11 @@
+<% if @teacher.errors.any? %>
+    <% @teacher.errors.full_messages.each do |message| %>
+      <div class="alert alert-warning" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+<% end %>
+
 
 <%= form_for @teacher do |form| %>
   <div class="form-group">
@@ -5,6 +13,12 @@
       <%= form.label :name %>
       <%= form.text_field :name, class: "form-control" %>
     </p>
+
+    <p>
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
+    </p>
+
     <p>
       <%= form.label :school %>
       <%= form.collection_select(:school_id, School.all, :id, :name, {}, { class: "form-control" }) %>
@@ -19,8 +33,14 @@
       <%= form.label :grade %>
       <%= form.text_field :grade, class: "form-control" %>
     </p>
+
+    <p>
+      <%= form.label :password %>
+      <%= form.text_field :password, class: "form-control" %>
+    </p>
+
   </div>
   
-  <p><%= form.button 'Create Teacher', class: "btn btn-success" %></p>
+  <p><%= form.button 'Sign Up', class: "btn btn-success" %></p>
   
 <% end %>

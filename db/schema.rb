@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "name"
     t.string  "subject"
     t.string  "grade"
-    t.string  "password"
     t.integer "school_id"
+    t.string  "email"
+    t.string  "password_digest"
   end
 
   add_index "teachers", ["school_id"], name: "index_teachers_on_school_id"

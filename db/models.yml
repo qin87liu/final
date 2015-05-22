@@ -3,10 +3,11 @@ School:
 
 Teacher:
   name: string
+  email: string
   school_id: integer
   subject: string
   grade: string
-  password: string
+  password_digest: string
 
 Assignment: 
   name: string

@@ -16,11 +16,11 @@ hs103 = School.create(name: "HS 103")
 
 # Create the teachers
 puts "Creating teachers..."
-katelyn = Teacher.create(name: "Katelyn Coleman", school_id: hs101.id, subject: "Math", grade: "10", password: "squirtle123")
-beth = Teacher.create(name: "Beth Rich", school_id: ps101.id, subject: "Special Ed", grade: "3", password: "pikachu123")
-chen = Teacher.create(name: "Chen Liu", school_id: hs101.id, subject: "Science", grade: "10", password: "jigglypuff123")
-siby = Teacher.create(name: "Siby Phillips", school_id: hs101.id, subject: "English", grade: "9", password: "charmander123")
-david = Teacher.create(name: "David Studer", school_id: ms101.id, subject: "Science", grade: "8", password: "golem123")
+katelyn = Teacher.create(name: "Katelyn Coleman", school_id: hs101.id, subject: "Math", grade: "10", password: "squirtle")
+beth = Teacher.create(name: "Beth Rich", school_id: ps101.id, subject: "Special Ed", grade: "3", password: "pikachu")
+chen = Teacher.create(name: "Chen Liu", school_id: hs101.id, subject: "Science", grade: "10", password: "jigglypuff")
+siby = Teacher.create(name: "Siby Phillips", school_id: hs101.id, subject: "English", grade: "9", password: "charmander")
+david = Teacher.create(name: "David Studer", school_id: ms101.id, subject: "Science", grade: "8", password: "golem")
 
 # Create the assistants
 puts "Creating assistants..."

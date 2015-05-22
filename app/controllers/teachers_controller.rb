@@ -12,8 +12,12 @@ class TeachersController < ApplicationController
   end
 
   def create
-  	Teacher.create(params["teacher"])
-  	redirect_to teachers_url
+  	@teacher = Teacher.create(params["teacher"])
+  	if @teacher.valid?
+      redirect_to teachers_url, notice: "Thanks for signing up!"
+    else
+      render "new"
+    end
   end
 
   def edit
