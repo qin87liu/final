@@ -7,7 +7,7 @@
     </p>
 
     <p>
-      <%= form.label :taecher %>
+      <%= form.label :teacher %>
       <%= form.collection_select(:teacher_id, Teacher.all, :id, :name, {}, { class: "form-control" }) %>
     </p>
 
@@ -24,6 +24,11 @@
     <p>
       <%= form.label :estimate_time %>
       <%= form.text_field :estimate_time, class: "form-control" %>
+    </p>
+
+    <p>
+      <%= form.label :status %>
+      <%= form.text_field :status, class: "form-control" %>
     </p>
 
   </div>

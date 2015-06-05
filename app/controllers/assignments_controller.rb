@@ -7,6 +7,11 @@ class AssignmentsController < ApplicationController
   def show
     @assignment = Assignment.find_by(id: params["id"])
     @teachers = Teacher.all
+    if @assignment.assistant_id?
+      @assistant = Assistant.find_by(id: @assignment.assistant_id).name
+    else
+      @assistant = "None"
+    end
   end
 
   def new
@@ -15,7 +20,8 @@ class AssignmentsController < ApplicationController
 
   def create
   	Assignment.create(params["assignment"])
-  	redirect_to assignments_url
+    teacher = Teacher.find_by(id: params["assignment"]["teacher_id"])
+  	redirect_to teacher_url(teacher)
   end
 
   def edit
@@ -32,7 +38,7 @@ class AssignmentsController < ApplicationController
   def destroy
   	@assignment = Assignment.find_by(id: params["id"])
   	@assignment.delete
-  	redirect_to assignments_url
+  	redirect_to :back
   end
 
 end

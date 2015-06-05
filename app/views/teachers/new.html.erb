@@ -15,11 +15,6 @@
     </p>
 
     <p>
-      <%= form.label :email %>
-      <%= form.text_field :email, class: "form-control" %>
-    </p>
-
-    <p>
       <%= form.label :school %>
       <%= form.collection_select(:school_id, School.all, :id, :name, {}, { class: "form-control" }) %>
     </p>
@@ -32,11 +27,6 @@
     <p>
       <%= form.label :grade %>
       <%= form.text_field :grade, class: "form-control" %>
-    </p>
-
-    <p>
-      <%= form.label :password %>
-      <%= form.text_field :password, class: "form-control" %>
     </p>
 
   </div>

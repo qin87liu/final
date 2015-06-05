@@ -1,0 +1,8 @@
+
+<%= form_tag sessions_path, class: "form-signin" do %>
+  <h1>Profikio</h1>
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <%= text_field_tag :email, "", class: "form-control", placeholder: "Email Address" %>
+  <%= password_field_tag :password, "", class: "form-control", placeholder: "Password" %>
+  <%= button_tag "Sign In", class: "btn btn-lg btn-primary btn-block" %>
+<% end %>

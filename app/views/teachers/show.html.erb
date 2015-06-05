@@ -1,7 +1,86 @@
-<% teacher = Teacher.find_by(id: params["id"]) %>
+<!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
 
-<h3>Teacher Name: <%=teacher.name%></h3>
-
-<p>School: <%=School.find_by(id: teacher.school_id).name%></p>
-<p>Subject(s): <%=teacher.subject%></p>
-<p>Grade(s): <%=teacher.grade%></p>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<%= @teacher.name %>
+					</div>
+					<div class="profile-usertitle-job">
+						<%= School.find_by(@teacher.school_id).name %>
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<%= link_to "New Assignment", new_assignment_path, class: 'btn btn-sm btn-success' %>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<%= link_to edit_teacher_path do %>
+								<i class="glyphicon glyphicon-user"></i> Edit Profile
+							<% end %>
+						</li>
+						<li>
+							<%= link_to logout_url do %>
+								<i class="glyphicon glyphicon-off"></i> Logout
+							<% end %>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+      <div class="profile-content">
+			  <div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Here are a list of your assignments.</div>
+					<!-- Table -->
+					<table class="table">
+					  <tr>
+					    <th>Name</th>
+					    <th>Number of Assignments</th> 
+					    <th>Estimated Time</th>
+					    <th>Due Date</th>
+					    <th>Assigned TA</th>
+					  </tr>
+					  <% assignments = Assignment.where(teacher_id: @teacher.id) %>
+					  <% assignments.each do |assignment| %>
+						<tr>
+							<td><%= link_to assignment.name, assignment_url(assignment) %></td>
+						  <td><%= assignment.num_assignments %></td>
+						  <td><%= assignment.estimate_time %></td>
+						  <td><%= assignment.due_date %></td>
+						  <% if assignment.assistant_id? %>
+					      <% assistant = Assistant.find_by(id: assignment.assistant_id).name %>
+					    <% else %>
+					      <% assistant = "None" %>
+					    <%end %>
+						  <td><%= assistant %></td>
+						  <td>
+						  	<%= link_to "Delete", assignment_url(assignment), method: :delete, class: 'btn btn-xs btn-danger' %>
+					  	</td>
+			      </tr>
+						<% end %>
+					</table>
+				</div>
+      </div>
+		</div>
+	</div>
+</div>

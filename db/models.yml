@@ -3,11 +3,9 @@ School:
 
 Teacher:
   name: string
-  email: string
   school_id: integer
   subject: string
   grade: string
-  password_digest: string
 
 Assignment: 
   name: string
@@ -19,13 +17,18 @@ Assignment:
 
 Assistant:
   name: string
-  email: string
   subject_pref: string
   grade_pref: string
-  password: string
 
 Review:
   assistant_id: integer
   date: string
   stars: integer
   review: text
+
+User:
+  name: string
+  email: string
+  password_digest: string
+  teacher_id: integer
+  assistant_id: integer
