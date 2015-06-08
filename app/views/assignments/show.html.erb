@@ -7,8 +7,12 @@
 
 <p>Number of Assignments: <%=@assignment.num_assignments%></p>
 
-<p>Due Date: <%=@assignment.due_date%></p>
+<p>Due Date (MM/DD/YY): <%=@assignment.due_date%></p>
 
-<p>Estimated time to complete: <%=@assignment.estimate_time%></p>
+<p>Estimated time to complete (hours): <%=@assignment.estimate_time%></p>
+
+<p>Link to student work (e.g. Google Drive shared folder): <%=@assignment.link%></p>
 
 <p>Assigned TA: <%=@assistant%></p>
+
+<p>Assignment Status: <%=@assignment.status%></p>

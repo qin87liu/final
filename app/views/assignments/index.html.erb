@@ -20,14 +20,10 @@
       <%= assignment.estimate_time %>
     </div>
   </div>
-  <div class = "row">
-    <p>
-      <%= link_to "Claim Assignment!", edit_assignment_url(assignment), class: 'btn btn-sm btn-primary' %>
-      <%= link_to "Assignment Graded!", assignment_url(assignment), method: :delete, class: 'btn btn-sm btn-warning' %>
-    </p>
-  </div>
+  
 <% end %>
 
 <div class="row">
   <p><%= link_to "New Assignment", new_assignment_path, class: 'btn btn-sm btn-success' %></p>
+  <p><%= link_to "Back to My Assignments", assistant_url(@user), class: 'btn btn-sm btn-success' %> </p>
 </div>

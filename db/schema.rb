@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "estimate_time"
     t.integer "assistant_id"
     t.string  "status"
+    t.string  "link"
+    t.text    "instructions"
   end
 
   add_index "assignments", ["assistant_id"], name: "index_assignments_on_assistant_id"
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "teacher_id"
     t.integer "assistant_id"
     t.string  "password_digest"
+    t.string  "role"
   end
 
   add_index "users", ["assistant_id"], name: "index_users_on_assistant_id"

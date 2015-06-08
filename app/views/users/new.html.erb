@@ -19,5 +19,18 @@
     <%= form.label :password %>
     <%= form.password_field :password, class: "form-control" %>
   </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+      Teacher
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+      Teaching Assistant
+    </label>
+  </div>
+
   <%= form.button 'Sign Up', class: "btn btn-success" %>
 <% end %>

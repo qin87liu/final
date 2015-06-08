@@ -33,11 +33,11 @@ evan = Assistant.create(name: "Evan", subject_pref: "math", grade_pref: "9-12")
 
 # Create the assignments
 puts "Creating assignments..."
-assignment1 = Assignment.create(name: "Math HW1", teacher_id: katelyn.id, num_assignments: "100", due_date: "May 1, 2015", estimate_time: "2", assistant_id: alex.id)
-assignment2 = Assignment.create(name: "Science Lab 1", teacher_id: chen.id, num_assignments: "120", due_date: "May 5, 2015", estimate_time: "6", assistant_id: catherine.id)
-assignment3 = Assignment.create(name: "Exam 1", teacher_id: chen.id, num_assignments: "150", due_date: "May 10, 2015", estimate_time: "4", assistant_id: alex.id)
-assignment4 = Assignment.create(name: "Worksheet 1", teacher_id: beth.id, num_assignments: "15", due_date: "May 2, 2015", estimate_time: "1", assistant_id: donald.id)
-assignment5 = Assignment.create(name: "English Essay 2", teacher_id: siby.id, num_assignments: "30", due_date: "June 1, 2015", estimate_time: "5", assistant_id: alex.id)
+assignment1 = Assignment.create(name: "Math HW1", teacher_id: katelyn.id, num_assignments: "100", due_date: "May 1, 2015", estimate_time: "2", assistant_id: alex.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
+assignment2 = Assignment.create(name: "Science Lab 1", teacher_id: chen.id, num_assignments: "120", due_date: "May 5, 2015", estimate_time: "6", assistant_id: catherine.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
+assignment3 = Assignment.create(name: "Exam 1", teacher_id: chen.id, num_assignments: "150", due_date: "May 10, 2015", estimate_time: "4", assistant_id: alex.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
+assignment4 = Assignment.create(name: "Worksheet 1", teacher_id: beth.id, num_assignments: "15", due_date: "May 2, 2015", estimate_time: "1", assistant_id: donald.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
+assignment5 = Assignment.create(name: "English Essay 2", teacher_id: siby.id, num_assignments: "30", due_date: "June 1, 2015", estimate_time: "5", assistant_id: alex.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
 
 # Create the reviews
 puts "Creating reviews..."
@@ -49,16 +49,16 @@ review5 = Review.create(assistant_id: catherine.id, date: "April 20 2015", stars
 
 #Create the users
 puts "Creating users"
-katelyn = User.create(name: "Katelyn Coleman", email: "katelyn@gmail.com", password: "squirtle123", teacher_id: katelyn.id)
-beth = User.create(name: "Beth Rich", email: "beth@gmail.com", password: "jigglypuff123", teacher_id: beth.id)
-chen = User.create(name: "Chen Liu", email: "chen@gmail.com", password: "pikachu123", teacher_id: chen.id)
-siby = User.create(name: "Siby Phillips", email: "siby@gmail.com", password: "golem123", teacher_id: siby.id)
-david = User.create(name: "David Studer", email: "david@gmail.com", password: "mew123", teacher_id: david.id)
-alex = User.create(name: "Alex", email: "alex@gmail.com", password: "meowth123", assistant_id: alex.id)
-barbara = User.create(name: "Barbara", email: "barbara@gmail.com", password: "bulbasaur123", assistant_id: barbara.id)
-catherine = User.create(name: "Catherine", email: "catherine@gmail.com", password: "charmeleon123", assistant_id: catherine.id)
-donald = User.create(name: "Donald", email: "donald@gmail.com", password: "charizard123", assistant_id: donald.id)
-evan = User.create(name: "Evan", email: "evan@gmail.com", password: "snorlax123", assistant_id: evan.id)
+katelyn = User.create(name: "Katelyn Coleman", email: "katelyn@gmail.com", password: "squirtle123", teacher_id: katelyn.id, role: "Teacher")
+beth = User.create(name: "Beth Rich", email: "beth@gmail.com", password: "jigglypuff123", teacher_id: beth.id, role: "Teacher")
+chen = User.create(name: "Chen Liu", email: "chen@gmail.com", password: "pikachu123", teacher_id: chen.id, role: "Teacher")
+siby = User.create(name: "Siby Phillips", email: "siby@gmail.com", password: "golem123", teacher_id: siby.id, role: "Teacher")
+david = User.create(name: "David Studer", email: "david@gmail.com", password: "mew123", teacher_id: david.id, role: "Teacher")
+alex = User.create(name: "Alex", email: "alex@gmail.com", password: "meowth123", assistant_id: alex.id, role: "Teaching Assistant")
+barbara = User.create(name: "Barbara", email: "barbara@gmail.com", password: "bulbasaur123", assistant_id: barbara.id, role: "Teaching Assistant")
+catherine = User.create(name: "Catherine", email: "catherine@gmail.com", password: "charmeleon123", assistant_id: catherine.id, role: "Teaching Assistant")
+donald = User.create(name: "Donald", email: "donald@gmail.com", password: "charizard123", assistant_id: donald.id, role: "Teaching Assistant")
+evan = User.create(name: "Evan", email: "evan@gmail.com", password: "snorlax123", assistant_id: evan.id, role: "Teaching Assistant")
 
 
 puts "There are now #{Teacher.count} teachers, #{Assistant.count} assistants, #{Assignment.count} assignments, and #{Review.count} reviews in the database."

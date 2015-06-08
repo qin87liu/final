@@ -14,15 +14,31 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params["user"])
-    if @user.valid?
-      @teacher = Teacher.create
-      @teacher.name = @user.name
-      @teacher.save
-      @user.teacher_id = @teacher.id
-      @user.save
-      redirect_to home_index_path
+    
+    if params["optionsRadios"] == "option1"
+      if @user.valid?
+        @teacher = Teacher.create
+        @teacher.name = @user.name
+        @teacher.save
+        @user.teacher_id = @teacher.id
+        @user.role = "Teacher"
+        @user.save
+        redirect_to home_index_path
+      else
+        render "new"
+      end
     else
-      render "new"
+      if @user.valid?
+        @assistant = Assistant.create
+        @assistant.name = @user.name
+        @assistant.save
+        @user.assistant_id = @assistant.id
+        @user.role = "Teaching Assistant"
+        @user.save
+        redirect_to home_index_path
+      else
+        render "new"
+      end
     end
   end
 

@@ -4,7 +4,8 @@ class TeachersController < ApplicationController
   end
 
   def show
-    @teacher = Teacher.find_by(id: params["id"])
+    @user = User.find_by(id: session["user_id"])
+    @teacher = Teacher.find_by(id: @user.teacher_id)
   end
 
   def new
@@ -27,7 +28,7 @@ class TeachersController < ApplicationController
   def update
   	@teacher = Teacher.find_by(id: params["id"])
   	@teacher.update(params["teacher"])
-  	redirect_to teachers_url  
+  	redirect_to teacher_url(@teacher)
   end
 
   def destroy

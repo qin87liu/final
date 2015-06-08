@@ -1,0 +1,20 @@
+
+<%= form_for @assistant do |form| %>
+  <div class="form-group">
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </p>
+    <p>
+      <%= form.label :subject_pref %>
+      <%= form.text_field :subject_pref, class: "form-control" %>
+    </p>
+
+    <p>
+      <%= form.label :grade_pref %>
+      <%= form.text_field :grade_pref, class: "form-control" %>
+    </p>
+
+  </div>
+  <%= form.button 'Update Assistant', class: "btn btn-success" %>
+<% end %>

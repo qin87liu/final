@@ -2,6 +2,7 @@ class AssignmentsController < ApplicationController
 
   def index
     @teachers = Teacher.all
+    @user = User.find_by(id: session["user_id"])
   end
 
   def show
@@ -19,9 +20,17 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-  	Assignment.create(params["assignment"])
-    teacher = Teacher.find_by(id: params["assignment"]["teacher_id"])
-  	redirect_to teacher_url(teacher)
+  	@user = User.find_by(id: session["user_id"])
+    @assignment = Assignment.create(params["assignment"])
+    if @assignment.valid?
+      teacher = Teacher.find_by(id: @user.teacher_id)
+      @assignment.teacher_id = teacher.id
+      @assignment.status = "Open"
+      @assignment.save
+    	redirect_to teacher_url(teacher)
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -31,8 +40,14 @@ class AssignmentsController < ApplicationController
 
   def update
   	@assignment = Assignment.find_by(id: params["id"])
+    @user = User.find_by(id: session["user_id"])
   	@assignment.update(params["assignment"])
-  	redirect_to assignments_url  
+    if@assignment.valid?
+      teacher = Teacher.find_by(id: @user.teacher_id)
+      redirect_to teacher_url(teacher)
+    else
+      render "new"
+    end
   end
 
   def destroy

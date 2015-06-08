@@ -14,6 +14,9 @@ Assignment:
   due_date: string
   estimate_time: integer
   assistant_id: integer
+  status: string
+  link: string
+  instructions: text
 
 Assistant:
   name: string
@@ -30,5 +33,6 @@ User:
   name: string
   email: string
   password_digest: string
+  role: string
   teacher_id: integer
   assistant_id: integer

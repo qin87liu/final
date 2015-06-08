@@ -16,23 +16,20 @@ Licensed under MIT
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						<%= @teacher.name %>
-					</div>
-					<div class="profile-usertitle-job">
-						<%= School.find_by(@teacher.school_id).name %>
+						<%= @assistant.name %>
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-					<%= link_to "New Assignment", new_assignment_path, class: 'btn btn-sm btn-success' %>
+					<%= link_to "Find Assignments", assignments_url, class: 'btn btn-sm btn-success' %>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							<%= link_to edit_teacher_path do %>
+							<%= link_to edit_assistant_path do %>
 								<i class="glyphicon glyphicon-user"></i> Edit Profile
 							<% end %>
 						</li>
@@ -58,24 +55,17 @@ Licensed under MIT
 					    <th>Number of Assignments</th> 
 					    <th>Estimated Time</th>
 					    <th>Due Date</th>
-					    <th>Assigned TA</th>
+					    <th>Teacher</th>
 					  </tr>
-					  <% assignments = Assignment.where(teacher_id: @teacher.id) %>
+					  <% assignments = Assignment.where(assistant_id: @assistant.id) %>
 					  <% assignments.each do |assignment| %>
 						<tr>
-							<td><%= link_to assignment.name, edit_assignment_path(assignment) %></td>
+							<td><%= link_to assignment.name, assignment_url(assignment) %></td>
 						  <td><%= assignment.num_assignments %></td>
 						  <td><%= assignment.estimate_time %></td>
 						  <td><%= assignment.due_date %></td>
-						  <% if assignment.assistant_id? %>
-					      <% assistant = Assistant.find_by(id: assignment.assistant_id).name %>
-					    <% else %>
-					      <% assistant = "None" %>
-					    <%end %>
-						  <td><%= assistant %></td>
-						  <td>
-						  	<%= link_to "Delete", assignment_url(assignment), method: :delete, class: 'btn btn-xs btn-danger' %>
-					  	</td>
+				      <% teacher = Teacher.find_by(id: assignment.teacher_id).name %>
+						  <td><%= teacher %></td>
 			      </tr>
 						<% end %>
 					</table>
