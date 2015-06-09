@@ -1,29 +1,38 @@
-<h3>Here are a list of the assignments!</h3>
+<div class = "container">
+  <div class = "row profile">
+    <div class = "profile-content">
 
-<% assignments = Assignment.all %>
-<% assignments.each do |assignment| %>
-  <div class="row">
-    <div class = "col-md-3">
-      <%= link_to assignment.name, assignment_url(assignment) %>
-    </div>
-    <div class = "col-md-3">
-      <% teacher = @teachers.find_by(id: assignment.teacher_id) %>
-      <%= teacher.name %>
-    </div>
-    <div class = "col-md-2">
-      <%= assignment.num_assignments %>
-    </div>
-    <div class = "col-md-2">
-      <%= assignment.due_date %>
-    </div>
-    <div class = "col-md-2">
-      <%= assignment.estimate_time %>
+      <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Here are a list of OPEN assignments.</div>
+          <!-- Table -->
+          <table class="table">
+            <tr>
+              <th>Name</th>
+              <th>Number of Assignments</th> 
+              <th>Estimated Time</th>
+              <th>Due Date</th>
+              <th>Teacher</th>
+            </tr>
+            <% assignments = Assignment.where(assistant_id: nil) %>
+            <% assignments.each do |assignment| %>
+            <tr>
+              <td><%= link_to assignment.name, assignment_url(assignment) %></td>
+              <td><%= assignment.num_assignments %></td>
+              <td><%= assignment.estimate_time %></td>
+              <td><%= assignment.due_date %></td>
+              <% teacher = Teacher.find_by(id: assignment.teacher_id).name %>
+              <td><%= teacher %></td>
+              <td><%= link_to "Claim Assignment", edit_assignment_url(assignment), class: 'btn btn-xs btn-primary' %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+
+      <div class="row">
+        <p><%= link_to "Back to My Assignments", assistant_url(@user), class: 'btn btn-sm btn-success' %> </p>
+      </div>
+
     </div>
   </div>
-  
-<% end %>
-
-<div class="row">
-  <p><%= link_to "New Assignment", new_assignment_path, class: 'btn btn-sm btn-success' %></p>
-  <p><%= link_to "Back to My Assignments", assistant_url(@user), class: 'btn btn-sm btn-success' %> </p>
 </div>

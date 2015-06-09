@@ -47,17 +47,18 @@ Licensed under MIT
       <div class="profile-content">
 			  <div class="panel panel-default">
 					<!-- Default panel contents -->
-					<div class="panel-heading">Here are a list of your assignments.</div>
+					<div class="panel-heading">Here are a list of your IN PROGRESS assignments.</div>
 					<!-- Table -->
 					<table class="table">
 					  <tr>
 					    <th>Name</th>
-					    <th>Number of Assignments</th> 
-					    <th>Estimated Time</th>
+					    <th># Assignments</th> 
+					    <th>Est Time</th>
 					    <th>Due Date</th>
 					    <th>Teacher</th>
+					    <th>Status</th>
 					  </tr>
-					  <% assignments = Assignment.where(assistant_id: @assistant.id) %>
+					  <% assignments = Assignment.where(assistant_id: @assistant.id, status: "In Progress") %>
 					  <% assignments.each do |assignment| %>
 						<tr>
 							<td><%= link_to assignment.name, assignment_url(assignment) %></td>
@@ -66,10 +67,41 @@ Licensed under MIT
 						  <td><%= assignment.due_date %></td>
 				      <% teacher = Teacher.find_by(id: assignment.teacher_id).name %>
 						  <td><%= teacher %></td>
+						  <td><%= assignment.status %></td>
+						  <td><%= link_to "Mark Complete", edit_assignment_url(assignment), class: 'btn btn-xs btn-primary' %></td>
 			      </tr>
 						<% end %>
 					</table>
 				</div>
+
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Here are a list of your COMPLETED assignments.</div>
+					<!-- Table -->
+					<table class="table">
+					  <tr>
+					    <th>Name</th>
+					    <th># Assignments</th> 
+					    <th>Est Time</th>
+					    <th>Due Date</th>
+					    <th>Teacher</th>
+					    <th>Status</th>
+					  </tr>
+					  <% assignments = Assignment.where(assistant_id: @assistant.id, status: "Complete") %>
+					  <% assignments.each do |assignment| %>
+						<tr>
+							<td><%= link_to assignment.name, assignment_url(assignment) %></td>
+						  <td><%= assignment.num_assignments %></td>
+						  <td><%= assignment.estimate_time %></td>
+						  <td><%= assignment.due_date %></td>
+				      <% teacher = Teacher.find_by(id: assignment.teacher_id).name %>
+						  <td><%= teacher %></td>
+						  <td><%= assignment.status %></td>
+			      </tr>
+						<% end %>
+					</table>
+				</div>
+
       </div>
 		</div>
 	</div>

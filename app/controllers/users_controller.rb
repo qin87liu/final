@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         @user.teacher_id = @teacher.id
         @user.role = "Teacher"
         @user.save
-        redirect_to home_index_path
+        redirect_to home_index_path, notice: "Thanks for signing up!"
       else
         render "new"
       end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         @user.assistant_id = @assistant.id
         @user.role = "Teaching Assistant"
         @user.save
-        redirect_to home_index_path
+        redirect_to home_index_path, notice: "Thanks for signing up!"
       else
         render "new"
       end

@@ -8,6 +8,7 @@ class AssignmentsController < ApplicationController
   def show
     @assignment = Assignment.find_by(id: params["id"])
     @teachers = Teacher.all
+    @user = User.find_by(id: session["user_id"])
     if @assignment.assistant_id?
       @assistant = Assistant.find_by(id: @assignment.assistant_id).name
     else
@@ -34,8 +35,18 @@ class AssignmentsController < ApplicationController
   end
 
   def edit
-  	@assignment = Assignment.find_by(id: params["id"])
+  	@user = User.find_by(id: session["user_id"])
+    @assignment = Assignment.find_by(id: params["id"])
     @teachers = Teacher.all
+    if @user.assistant_id?
+      if @assignment.status == "Open"
+        @assignment.update(assistant_id: @user.assistant_id, status: "In Progress")
+        redirect_to :back, notice: "Thanks for your help!!!"
+      else
+        @assignment.update(status: "Complete")
+        redirect_to :back, notice: "Way to go!!!"
+      end
+    end
   end
 
   def update
@@ -54,6 +65,15 @@ class AssignmentsController < ApplicationController
   	@assignment = Assignment.find_by(id: params["id"])
   	@assignment.delete
   	redirect_to :back
+  end
+
+  def claim
+    @assignment = Assignment.find_by(id: params["id"])
+    @user = User.find_by(id: session["user_id"])
+    @assistant = Assitant.find_by(id: user.assistant_id)
+    @assignment.assisant_id = @assistant.id
+    @assignment.save
+    redirect_to :back
   end
 
 end

@@ -1,18 +1,60 @@
 
-<h3>Assignment Name: <%=@assignment.name%></h3>
+<div class = "container">
+  <div class = "row profile">
+    <div class = "profile-content">
 
-<% teacher = @teachers.find_by(id: @assignment.teacher_id) %>
+    	<div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Assignment Name: <%=@assignment.name%></div>
+        <!-- Table -->
+        <table class="table">
+        	<tr>
+  					<% teacher = @teachers.find_by(id: @assignment.teacher_id) %>
+						<td>Teacher: </td>
+						<td><%=teacher.name%></td>
+					</tr>
 
-<p>Teacher: <%=teacher.name%></p>
+					<tr>
+						<td>Number of Assignments: </td>
+						<td><%=@assignment.num_assignments%></td>
+					</tr>
 
-<p>Number of Assignments: <%=@assignment.num_assignments%></p>
+					<tr>
+						<td>Due Date: </td>
+						<td><%=@assignment.due_date%></td>
+					</tr>
+			
+					<tr>
+						<td>Estimated Time to Complete (hours): </td>
+						<td><%=@assignment.estimate_time%></td>
+					</tr>
+			
+					<tr>
+						<td>Link to Student Work: </td>
+						<td><%=@assignment.link%></td>
+					</tr>
+			
+					<tr>
+						<td>Grading Instructions: </td>
+						<td><%= @assignment.instructions %></td>
+					</tr>
+			
+					<tr>
+						<td>Assigned TA: </td>
+						<td><%=@assistant%></td>
+					</tr>
+			
+					<tr>
+						<td>Assignment Status: </td>
+						<td><%=@assignment.status%></td>
+					</tr>
+    		</table>
+      </div>
 
-<p>Due Date (MM/DD/YY): <%=@assignment.due_date%></p>
-
-<p>Estimated time to complete (hours): <%=@assignment.estimate_time%></p>
-
-<p>Link to student work (e.g. Google Drive shared folder): <%=@assignment.link%></p>
-
-<p>Assigned TA: <%=@assistant%></p>
-
-<p>Assignment Status: <%=@assignment.status%></p>
+    	<div class="row">
+				<p><%= link_to "Back to Open Assignments", assignments_url, class: 'btn btn-sm btn-success' %> </p>
+				<p><%= link_to "Back to My Assignments", assistant_url(@user), class: 'btn btn-sm btn-success' %> </p>
+			</div>
+    </div>
+  </div>
+</div>

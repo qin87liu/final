@@ -33,11 +33,16 @@ evan = Assistant.create(name: "Evan", subject_pref: "math", grade_pref: "9-12")
 
 # Create the assignments
 puts "Creating assignments..."
-assignment1 = Assignment.create(name: "Math HW1", teacher_id: katelyn.id, num_assignments: "100", due_date: "May 1, 2015", estimate_time: "2", assistant_id: alex.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
-assignment2 = Assignment.create(name: "Science Lab 1", teacher_id: chen.id, num_assignments: "120", due_date: "May 5, 2015", estimate_time: "6", assistant_id: catherine.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
-assignment3 = Assignment.create(name: "Exam 1", teacher_id: chen.id, num_assignments: "150", due_date: "May 10, 2015", estimate_time: "4", assistant_id: alex.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
-assignment4 = Assignment.create(name: "Worksheet 1", teacher_id: beth.id, num_assignments: "15", due_date: "May 2, 2015", estimate_time: "1", assistant_id: donald.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
-assignment5 = Assignment.create(name: "English Essay 2", teacher_id: siby.id, num_assignments: "30", due_date: "June 1, 2015", estimate_time: "5", assistant_id: alex.id, status: "Assigned", link: "www.gmail.com", instructions: "blah")
+assignment1 = Assignment.create(name: "Math HW1", teacher_id: katelyn.id, num_assignments: "100", due_date: "May 1, 2015", estimate_time: "2", assistant_id: alex.id, status: "In Progress", link: "www.gmail.com", instructions: "blah")
+assignment2 = Assignment.create(name: "Science Lab 1", teacher_id: chen.id, num_assignments: "120", due_date: "May 5, 2015", estimate_time: "6", assistant_id: catherine.id, status: "In Progress", link: "www.gmail.com", instructions: "blah")
+assignment3 = Assignment.create(name: "Exam 1", teacher_id: chen.id, num_assignments: "150", due_date: "May 10, 2015", estimate_time: "4", assistant_id: alex.id, status: "In Progress", link: "www.gmail.com", instructions: "blah")
+assignment4 = Assignment.create(name: "Worksheet 1", teacher_id: beth.id, num_assignments: "15", due_date: "May 2, 2015", estimate_time: "1", assistant_id: donald.id, status: "In Progress", link: "www.gmail.com", instructions: "blah")
+assignment5 = Assignment.create(name: "English Essay 2", teacher_id: siby.id, num_assignments: "30", due_date: "June 1, 2015", estimate_time: "5", assistant_id: alex.id, status: "In Progress", link: "www.gmail.com", instructions: "blah")
+assignment6 = Assignment.create(name: "Math HW2", teacher_id: katelyn.id, num_assignments: "100", due_date: "June 1, 2015", estimate_time: "5", status: "Open", link: "www.gmail.com", instructions: "blah")
+assignment7 = Assignment.create(name: "Science Lab 2", teacher_id: chen.id, num_assignments: "150", due_date: "June 1, 2015", estimate_time: "5", status: "Open", link: "www.gmail.com", instructions: "blah")
+assignment8 = Assignment.create(name: "English Essay 3", teacher_id: siby.id, num_assignments: "100", due_date: "June 1, 2015", estimate_time: "5", status: "Open", link: "www.gmail.com", instructions: "blah")
+assignment9 = Assignment.create(name: "Worksheet 2", teacher_id: beth.id, num_assignments: "100", due_date: "June 1, 2015", estimate_time: "5", status: "Open", link: "www.gmail.com", instructions: "blah")
+assignment10 = Assignment.create(name: "Lab 3", teacher_id: david.id, num_assignments: "100", due_date: "June 1, 2015", estimate_time: "5", status: "Open", link: "www.gmail.com", instructions: "blah")
 
 # Create the reviews
 puts "Creating reviews..."
