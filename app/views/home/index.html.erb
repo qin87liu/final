@@ -1,10 +1,40 @@
-    
-<h3>Welcome to Profikio!</h3>
 
-<h4>Teachers</h4>
-<%= link_to "Create Account", new_user_path, class: 'btn btn-sm btn-success' %>
-<%= link_to "Sign In", new_session_path, class: 'btn btn-sm btn-success' %>
 
-<h4>Teaching Assistants</h4>
-<%= link_to "Create Account", new_user_path, class: 'btn btn-sm btn-success' %>
-<%= link_to "Sign In", new_session_path, class: 'btn btn-sm btn-success' %>
+<div class="jumbotron">
+  <div class = "row">
+    <div class = "col-md-8">
+      <h1>Profikio</h1>
+      <p>Connecting teachers with the support they need.</p>
+	  </div>
+	  <div class = "col-md-4 stressed">
+	    <%= image_tag("stressed_teacher.jpg", width: '300')%>
+	  </div>
+	</div>
+</div>
+
+<div class = "row">
+	<div class = "col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Teachers</h3>
+		  </div>
+		  <div class="panel-body">
+				<p>Are you overwhelmed with all of the tasks you have to do as a teacher? Do you wish you had more time to spend on important activities such as lesson planning? Profikio is here to help! Sign up to access our network of online, on-demand Teaching Assistants who can help you grade your work. Start saving time today!</p>    
+		  </div>
+		</div>		
+	</div>
+	<div class = "col-md-4 signin">
+		<p><%= link_to "Create Account", new_user_path, class: 'btn btn-block btn-primary' %></p>
+		<p><%= link_to "Sign In", new_session_path, class: 'btn btn-block btn-primary' %></p>
+	</div>
+	<div class = "col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Teaching Assistants</h3>
+		  </div>
+		  <div class="panel-body">
+				<p>Are you an aspiring teacher looking for more hands on experience in the field? Want to help out a teacher while helping prepare for your future career? Profikio is service for you! Sign up today and help teachers grade their student work. The feedback you provide will be valuable to both you as well as the teachers' students.</p>    
+		  </div>
+		</div>		
+	</div>
+</div>

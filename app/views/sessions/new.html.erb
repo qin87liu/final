@@ -1,8 +1,25 @@
-
-<%= form_tag sessions_path, class: "form-signin" do %>
-  <h1>Profikio</h1>
-  <h2 class="form-signin-heading">Please sign in</h2>
-  <%= text_field_tag :email, "", class: "form-control", placeholder: "Email Address" %>
-  <%= password_field_tag :password, "", class: "form-control", placeholder: "Password" %>
-  <%= button_tag "Sign In", class: "btn btn-lg btn-primary btn-block" %>
-<% end %>
+<div class="container" style="margin-top:30px">
+<div class="col-md-12">
+  <div class="modal-dialog" style="margin-bottom:0">
+    <div class="modal-content">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sign In</h3>
+      </div>
+	    <div class="panel-body">
+        <%= form_tag sessions_path, class: "form-signin" do %>
+          <fieldset>
+            <div class="form-group">
+              <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+            </div>
+            <div class="form-group">
+              <input class="form-control" placeholder="Password" name="password" type="password" value="">
+            </div>
+            <!-- Change this to a button or input when using this as a form -->
+            <%= button_tag "Sign In", class: "btn btn-sm btn-success" %>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
