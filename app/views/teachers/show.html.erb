@@ -19,7 +19,9 @@ Licensed under MIT
 						<%= @teacher.name %>
 					</div>
 					<div class="profile-usertitle-job">
-						<%= School.find_by(id: @teacher.school_id).name %>
+						<%if @teacher.school_id?%>
+							<%= School.find_by(id: @teacher.school_id).name %>
+						<% end %>
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
